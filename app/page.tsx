@@ -4,15 +4,15 @@ export default function Home() {
   return (
     <div className="space-y-16">
 
-      {/* COMPANY NAME */}
-      <header className="text-center py-10">
-        <h1 className="text-5xl font-extrabold tracking-tight text-gray-900">
+      {/* RED COMPANY NAME */}
+      <header className="text-center py-6">
+        <h1 className="text-4xl font-extrabold tracking-tight text-red-600">
           NW Welding Repair
         </h1>
       </header>
 
       {/* NAVIGATION BAR */}
-      <nav className="flex justify-center gap-8 text-lg font-semibold text-gray-700 pb-6">
+      <nav className="flex justify-center gap-10 text-lg font-semibold text-gray-800 pb-4 border-b">
         <Link href="/" className="hover:text-red-600 transition">Home</Link>
         <Link href="/services" className="hover:text-red-600 transition">Services</Link>
         <Link href="/emergency-repairs" className="hover:text-red-600 transition">Emergency</Link>
@@ -21,13 +21,13 @@ export default function Home() {
       </nav>
 
       {/* HERO SECTION */}
-      <section className="text-center space-y-6 px-6">
+      <section className="text-center space-y-6 px-6 pt-10">
         <h2 className="text-4xl md:text-5xl font-bold text-gray-900">
           Reliable Welding, Fabrication & Emergency Repair
         </h2>
 
         <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-          Fast, dependable, and professional welding services for industrial, agricultural, and residential needs. 
+          Fast, dependable, and professional welding services for industrial, agricultural, and residential needs.
           Whether it’s a broken trailer, heavy equipment, or custom fabrication — we get the job done right.
         </p>
 
