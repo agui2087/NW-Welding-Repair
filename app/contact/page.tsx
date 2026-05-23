@@ -1,4 +1,30 @@
+"use client";
+import { useState } from "react";
+
 export default function ContactPage() {
+  const [status, setStatus] = useState("");
+
+  async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
+    e.preventDefault();
+    setStatus("loading");
+
+    const form = e.target as HTMLFormElement;
+    const data = new FormData(form);
+
+    const response = await fetch("https://formspree.io/f/mdajzqwd", {
+      method: "POST",
+      body: data,
+      headers: { Accept: "application/json" },
+    });
+
+    if (response.ok) {
+      setStatus("success");
+      form.reset();
+    } else {
+      setStatus("error");
+    }
+  }
+
   return (
     <div className="max-w-3xl mx-auto space-y-12 py-20">
 
@@ -28,10 +54,29 @@ export default function ContactPage() {
         </p>
       </div>
 
+      {/* SUCCESS POPUP */}
+      {status === "success" && (
+        <div className="bg-green-100 border border-green-400 text-green-800 px-4 py-3 rounded relative">
+          <strong className="font-bold">Message Sent!</strong>
+          <span className="block sm:inline ml-2">
+            Thanks for reaching out — we’ll get back to you shortly.
+          </span>
+        </div>
+      )}
+
+      {/* ERROR POPUP */}
+      {status === "error" && (
+        <div className="bg-red-100 border border-red-400 text-red-800 px-4 py-3 rounded relative">
+          <strong className="font-bold">Something went wrong.</strong>
+          <span className="block sm:inline ml-2">
+            Please try again or call us directly.
+          </span>
+        </div>
+      )}
+
       {/* CONTACT FORM */}
       <form
-        action="https://formspree.io/f/mdajzqwd"
-        method="POST"
+        onSubmit={handleSubmit}
         className="space-y-6 bg-white p-6 border rounded-lg shadow-sm"
       >
 
@@ -88,9 +133,10 @@ export default function ContactPage() {
 
         <button
           type="submit"
-          className="bg-red-600 text-white px-6 py-3 rounded-md font-semibold hover:bg-red-700 transition"
+          disabled={status === "loading"}
+          className="bg-red-600 text-white px-6 py-3 rounded-md font-semibold hover:bg-red-700 transition disabled:opacity-50"
         >
-          Send Message
+          {status === "loading" ? "Sending..." : "Send Message"}
         </button>
 
       </form>
