@@ -2,22 +2,36 @@ import Link from "next/link";
 
 export default function Home() {
   return (
-    <div className="space-y-20">
+    <div className="space-y-16">
 
-      {/* HERO */}
-      <section className="text-center space-y-6 py-20">
-        <h1 className="text-4xl md:text-5xl font-extrabold text-gray-900 tracking-tight">
+      {/* COMPANY NAME */}
+      <header className="text-center py-10">
+        <h1 className="text-5xl font-extrabold tracking-tight text-gray-900">
           NW Welding Repair
         </h1>
+      </header>
 
-        <p className="text-lg md:text-xl text-gray-600 max-w-2xl mx-auto">
-          Reliable welding, fabrication, and repair services for industrial,
-          agricultural, and emergency needs. Built strong. Built fast. Built right.
+      {/* NAVIGATION BAR */}
+      <nav className="flex justify-center gap-8 text-lg font-semibold text-gray-700 pb-6">
+        <Link href="/" className="hover:text-red-600 transition">Home</Link>
+        <Link href="/services" className="hover:text-red-600 transition">Services</Link>
+        <Link href="/emergency-repairs" className="hover:text-red-600 transition">Emergency</Link>
+        <Link href="/gallery" className="hover:text-red-600 transition">Gallery</Link>
+        <Link href="/contact" className="hover:text-red-600 transition">Contact</Link>
+      </nav>
+
+      {/* HERO SECTION */}
+      <section className="text-center space-y-6 px-6">
+        <h2 className="text-4xl md:text-5xl font-bold text-gray-900">
+          Reliable Welding, Fabrication & Emergency Repair
+        </h2>
+
+        <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+          Fast, dependable, and professional welding services for industrial, agricultural, and residential needs. 
+          Whether it’s a broken trailer, heavy equipment, or custom fabrication — we get the job done right.
         </p>
 
         <div className="flex justify-center gap-4 pt-4 flex-wrap">
-
-          {/* SCHEDULE A QUOTE (Calendly) */}
           <a
             href="https://calendly.com/YOUR-LINK-HERE"
             target="_blank"
@@ -26,9 +40,8 @@ export default function Home() {
             Schedule a Quote
           </a>
 
-          {/* EMERGENCY CALL BUTTON */}
           <a
-            href="tel:5555555555"
+            href="tel:19712175616"
             className="border border-red-600 text-red-600 px-6 py-3 rounded-md font-semibold hover:bg-red-600 hover:text-white transition"
           >
             Emergency Repair
@@ -36,51 +49,86 @@ export default function Home() {
         </div>
       </section>
 
-      {/* SERVICES */}
-      <section className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-
-        <Link
-          href="/emergency-repairs"
-          className="bg-white border p-6 rounded-lg shadow-sm hover:shadow-md transition"
-        >
-          <h3 className="font-semibold text-gray-900 mb-2">Emergency Repairs</h3>
+      {/* SERVICES PREVIEW */}
+      <section className="max-w-5xl mx-auto px-6 grid md:grid-cols-3 gap-6">
+        <div className="bg-white border p-6 rounded-lg shadow-sm hover:shadow-md transition">
+          <h3 className="font-semibold text-gray-900 mb-2">Mobile Welding</h3>
           <p className="text-gray-600 text-sm">
-            Fast response within ~2 hours for urgent welding needs.
+            Fully equipped mobile welding for on‑site repairs and fabrication.
           </p>
-        </Link>
+        </div>
 
-        <Link
-          href="/fabrication"
-          className="bg-white border p-6 rounded-lg shadow-sm hover:shadow-md transition"
-        >
+        <div className="bg-white border p-6 rounded-lg shadow-sm hover:shadow-md transition">
           <h3 className="font-semibold text-gray-900 mb-2">Fabrication</h3>
           <p className="text-gray-600 text-sm">
             Custom metal fabrication built to your exact specifications.
           </p>
-        </Link>
+        </div>
 
-        <Link
-          href="/agricultural-industrial"
-          className="bg-white border p-6 rounded-lg shadow-sm hover:shadow-md transition"
-        >
-          <h3 className="font-semibold text-gray-900 mb-2">
-            Agricultural & Industrial
-          </h3>
+        <div className="bg-white border p-6 rounded-lg shadow-sm hover:shadow-md transition">
+          <h3 className="font-semibold text-gray-900 mb-2">Emergency Repairs</h3>
           <p className="text-gray-600 text-sm">
-            Heavy-duty repair and welding for field and industrial equipment.
+            Fast response for urgent welding needs — trailers, equipment, and more.
           </p>
-        </Link>
+        </div>
+      </section>
 
-        <Link
-          href="/contact"
-          className="bg-white border p-6 rounded-lg shadow-sm hover:shadow-md transition"
-        >
-          <h3 className="font-semibold text-gray-900 mb-2">Contact</h3>
-          <p className="text-gray-600 text-sm">
-            Get a quote or talk directly with our team.
-          </p>
-        </Link>
+      {/* PHOTO GALLERY PLACEHOLDER */}
+      <section className="max-w-5xl mx-auto px-6 space-y-6">
+        <h2 className="text-3xl font-bold text-gray-900 text-center">
+          Recent Work
+        </h2>
 
+        <p className="text-center text-gray-600 max-w-2xl mx-auto">
+          Upload your photos and I’ll plug them in here with clean descriptions.
+        </p>
+
+        <div className="grid md:grid-cols-3 gap-6">
+          {/* PHOTO SLOT 1 */}
+          <div className="bg-gray-100 border rounded-lg h-48 flex items-center justify-center text-gray-500">
+            Photo 1 Placeholder
+          </div>
+
+          {/* PHOTO SLOT 2 */}
+          <div className="bg-gray-100 border rounded-lg h-48 flex items-center justify-center text-gray-500">
+            Photo 2 Placeholder
+          </div>
+
+          {/* PHOTO SLOT 3 */}
+          <div className="bg-gray-100 border rounded-lg h-48 flex items-center justify-center text-gray-500">
+            Photo 3 Placeholder
+          </div>
+        </div>
+      </section>
+
+      {/* REVIEWS SECTION */}
+      <section className="max-w-4xl mx-auto px-6 space-y-8 py-10">
+        <h2 className="text-3xl font-bold text-gray-900 text-center">
+          Customer Reviews
+        </h2>
+
+        <div className="space-y-6">
+          <div className="bg-white border p-6 rounded-lg shadow-sm">
+            <p className="text-gray-700 italic">
+              “Fast, professional, and high‑quality work. Saved my trailer from falling apart.”
+            </p>
+            <p className="text-gray-900 font-semibold mt-2">— Customer Name</p>
+          </div>
+
+          <div className="bg-white border p-6 rounded-lg shadow-sm">
+            <p className="text-gray-700 italic">
+              “Showed up same day for an emergency repair. Highly recommend.”
+            </p>
+            <p className="text-gray-900 font-semibold mt-2">— Customer Name</p>
+          </div>
+
+          <div className="bg-white border p-6 rounded-lg shadow-sm">
+            <p className="text-gray-700 italic">
+              “Great communication and solid welding. Will hire again.”
+            </p>
+            <p className="text-gray-900 font-semibold mt-2">— Customer Name</p>
+          </div>
+        </div>
       </section>
 
     </div>
