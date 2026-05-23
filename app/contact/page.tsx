@@ -18,9 +18,9 @@ export default function ContactPage() {
         <h2 className="text-2xl font-semibold text-gray-900">Get in Touch</h2>
 
         <p className="text-gray-600">
-          <span className="font-semibold text-gray-900">Phone:</span> (555) 555‑5555  
+          <span className="font-semibold text-gray-900">Phone:</span> (971) 217‑5616  
           <br />
-          <span className="font-semibold text-gray-900">Email:</span> your@email.com
+          <span className="font-semibold text-gray-900">Email:</span> Erikeo@northwestweldrepair.com
         </p>
 
         <p className="text-gray-600 text-sm">
@@ -29,14 +29,20 @@ export default function ContactPage() {
       </div>
 
       {/* CONTACT FORM */}
-      <form className="space-y-6 bg-white p-6 border rounded-lg shadow-sm">
+      <form
+        action="https://formspree.io/f/mdajzqwd"
+        method="POST"
+        className="space-y-6 bg-white p-6 border rounded-lg shadow-sm"
+      >
 
         <div>
           <label className="block text-sm font-semibold text-gray-700 mb-1">
             Full Name
           </label>
           <input
+            name="fullName"
             type="text"
+            required
             className="w-full border rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-red-500"
             placeholder="John Doe"
           />
@@ -47,7 +53,9 @@ export default function ContactPage() {
             Email
           </label>
           <input
+            name="email"
             type="email"
+            required
             className="w-full border rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-red-500"
             placeholder="you@example.com"
           />
@@ -58,9 +66,10 @@ export default function ContactPage() {
             Phone Number
           </label>
           <input
+            name="phone"
             type="tel"
             className="w-full border rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-red-500"
-            placeholder="(555) 555-5555"
+            placeholder="(971) 217‑5616"
           />
         </div>
 
@@ -69,14 +78,16 @@ export default function ContactPage() {
             What do you need help with?
           </label>
           <textarea
+            name="message"
             rows={5}
+            required
             className="w-full border rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-red-500"
             placeholder="Describe your project or repair..."
           />
         </div>
 
         <button
-          type="button"
+          type="submit"
           className="bg-red-600 text-white px-6 py-3 rounded-md font-semibold hover:bg-red-700 transition"
         >
           Send Message
