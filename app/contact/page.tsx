@@ -1,15 +1,34 @@
 export default function ContactPage() {
   return (
-    <div className="max-w-3xl mx-auto space-y-8">
+    <div className="max-w-3xl mx-auto space-y-12 py-20">
 
-      <h1 className="text-3xl font-bold text-gray-900">
-        Contact NW Welding Repair
-      </h1>
+      {/* PAGE TITLE */}
+      <div className="space-y-2">
+        <h1 className="text-4xl md:text-5xl font-extrabold text-gray-900">
+          Contact NW Welding Repair
+        </h1>
 
-      <p className="text-gray-600">
-        Send us a message and we’ll get back to you as soon as possible.
-      </p>
+        <p className="text-gray-600 text-lg">
+          Send us a message and we’ll get back to you as soon as possible.
+        </p>
+      </div>
 
+      {/* CONTACT INFO CARD */}
+      <div className="bg-white border p-6 rounded-lg shadow-sm space-y-3">
+        <h2 className="text-2xl font-semibold text-gray-900">Get in Touch</h2>
+
+        <p className="text-gray-600">
+          <span className="font-semibold text-gray-900">Phone:</span> (555) 555‑5555  
+          <br />
+          <span className="font-semibold text-gray-900">Email:</span> your@email.com
+        </p>
+
+        <p className="text-gray-600 text-sm">
+          Business Hours: 7am – 5pm (Closed Sundays)
+        </p>
+      </div>
+
+      {/* CONTACT FORM */}
       <form className="space-y-6 bg-white p-6 border rounded-lg shadow-sm">
 
         <div>
