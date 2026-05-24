@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import Link from "next/link";
+import Image from "next/image";
 import "./globals.css";
 
 const geistSans = Geist({
@@ -16,6 +17,9 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   title: "NW Welding Repair",
   description: "NW Welding Repair website",
+  icons: {
+    icon: "/favicon.png", // tab icon
+  },
 };
 
 export default function RootLayout({
@@ -34,12 +38,15 @@ export default function RootLayout({
         <header className="w-full bg-white border-b border-gray-200 shadow-sm">
           <div className="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
 
-            {/* Company Name */}
-            <Link
-              href="/"
-              className="text-xl font-bold text-red-600 hover:text-red-700 transition"
-            >
-              NW Welding Repair
+            {/* LOGO ONLY (CLICKABLE) */}
+            <Link href="/" className="flex items-center hover:opacity-90 transition">
+              <Image
+                src="/backgrounds/IMG_7425.JPG"
+                alt="NW Welding Repair Logo"
+                width={65}
+                height={65}
+                className="rounded-md object-cover w-[80px] h-[80px]"
+              />
             </Link>
 
             {/* NAVIGATION BAR */}

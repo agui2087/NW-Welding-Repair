@@ -57,20 +57,20 @@ export default function GalleryPage() {
         </p>
       </section>
 
-      {/* IMAGE GRID */}
-      <section className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+      {/* 2×2 IMAGE GRID */}
+      <section className="grid grid-cols-1 sm:grid-cols-2 gap-8 max-w-4xl mx-auto">
         {images.map((img, index) => (
           <div
             key={index}
-            className="w-full h-64 bg-white shadow rounded-lg overflow-hidden cursor-pointer"
+            className="bg-white border rounded-lg shadow-sm hover:shadow-md transition overflow-hidden cursor-pointer"
             onClick={() => setCurrentIndex(index)}
           >
             <Image
               src={img.src}
               alt={`Gallery image ${index + 1}`}
               width={800}
-              height={600}
-              className="object-cover w-full h-full"
+              height={800}
+              className="object-cover w-full h-64 sm:h-72"
             />
           </div>
         ))}

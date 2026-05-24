@@ -18,7 +18,7 @@ export default function Home() {
 
         <div className="flex justify-center gap-4 pt-4 flex-wrap">
           <a
-            href="https://calendly.com/YOUR-LINK-HERE"
+            href="https://calendly.com/erikeo-northwestweldrepair/30min"
             target="_blank"
             className="bg-red-600 text-white px-6 py-3 rounded-md font-semibold hover:bg-red-700 transition"
           >
