@@ -54,8 +54,8 @@ export default function RootLayout({
               />
             </Link>
 
-            {/* DESKTOP NAV */}
-            <nav className="hidden md:flex gap-16 text-lg font-semibold text-gray-800 ml-10">
+            {/* DESKTOP NAV (large screens only) */}
+            <nav className="hidden lg:flex gap-16 text-lg font-semibold text-gray-800 ml-10">
               <Link href="/" className="hover:text-red-600 transition">Home</Link>
               <Link href="/services" className="hover:text-red-600 transition">Services</Link>
               <Link href="/emergency-repairs" className="hover:text-red-600 transition">Emergency</Link>
@@ -63,9 +63,9 @@ export default function RootLayout({
               <Link href="/contact" className="hover:text-red-600 transition">Contact</Link>
             </nav>
 
-            {/* MOBILE RED HAMBURGER */}
+            {/* MOBILE/TABLET RED HAMBURGER */}
             <button
-              className="md:hidden text-4xl font-bold text-red-600"
+              className="lg:hidden text-4xl font-bold text-red-600"
               onClick={() => setMenuOpen(!menuOpen)}
             >
               ☰
@@ -74,7 +74,7 @@ export default function RootLayout({
 
           {/* MOBILE DROPDOWN MENU */}
           {menuOpen && (
-            <div className="md:hidden bg-white border-t border-gray-200 shadow-md">
+            <div className="lg:hidden bg-white border-t border-gray-200 shadow-md">
               <nav className="flex flex-col text-lg font-semibold text-gray-800 p-6 space-y-4">
                 <Link href="/" onClick={() => setMenuOpen(false)} className="hover:text-red-600">Home</Link>
                 <Link href="/services" onClick={() => setMenuOpen(false)} className="hover:text-red-600">Services</Link>
