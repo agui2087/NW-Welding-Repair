@@ -1,34 +1,17 @@
-import Link from "next/link";
-
 export default function Home() {
   return (
     <div className="space-y-16">
 
-      {/* RED COMPANY NAME */}
-      <header className="text-center py-6">
-        <h1 className="text-4xl font-extrabold tracking-tight text-red-600">
-          NW Welding Repair
-        </h1>
-      </header>
-
-      {/* NAVIGATION BAR */}
-      <nav className="flex justify-center gap-10 text-lg font-semibold text-gray-800 pb-4 border-b">
-        <Link href="/" className="hover:text-red-600 transition">Home</Link>
-        <Link href="/services" className="hover:text-red-600 transition">Services</Link>
-        <Link href="/emergency-repairs" className="hover:text-red-600 transition">Emergency</Link>
-        <Link href="/gallery" className="hover:text-red-600 transition">Gallery</Link>
-        <Link href="/contact" className="hover:text-red-600 transition">Contact</Link>
-      </nav>
-
       {/* HERO SECTION */}
-      <section className="text-center space-y-6 px-6 pt-10">
+      <section className="text-center space-y-6 px-6 pt-6">
         <h2 className="text-4xl md:text-5xl font-bold text-gray-900">
           Reliable Welding, Fabrication & Emergency Repair
         </h2>
 
         <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-          Fast, dependable, and professional welding services for industrial, agricultural, and residential needs.
-          Whether it’s a broken trailer, heavy equipment, or custom fabrication — we get the job done right.
+          Fast, dependable, and professional welding services for industrial, agricultural, 
+          and residential needs. Whether it’s a broken trailer, heavy equipment, or custom 
+          fabrication — we get the job done right.
         </p>
 
         <div className="flex justify-center gap-4 pt-4 flex-wrap">
@@ -46,6 +29,33 @@ export default function Home() {
           >
             Emergency Repair
           </a>
+        </div>
+      </section>
+
+      {/* TRUST BAR */}
+      <section className="w-full bg-white border-y py-4">
+        <div className="max-w-5xl mx-auto flex flex-wrap justify-center gap-10 text-gray-700 text-sm font-semibold">
+
+          <div className="flex items-center gap-2">
+            <span className="text-red-600 text-lg">✓</span>
+            Licensed & Insured
+          </div>
+
+          <div className="flex items-center gap-2">
+            <span className="text-red-600 text-lg">✓</span>
+            Serving the Pacific Northwest
+          </div>
+
+          <div className="flex items-center gap-2">
+            <span className="text-red-600 text-lg">✓</span>
+            24/7 Emergency Welding
+          </div>
+
+          <div className="flex items-center gap-2">
+            <span className="text-red-600 text-lg">✓</span>
+            Fully Mobile Welding Service
+          </div>
+
         </div>
       </section>
 
@@ -84,17 +94,14 @@ export default function Home() {
         </p>
 
         <div className="grid md:grid-cols-3 gap-6">
-          {/* PHOTO SLOT 1 */}
           <div className="bg-gray-100 border rounded-lg h-48 flex items-center justify-center text-gray-500">
             Photo 1 Placeholder
           </div>
 
-          {/* PHOTO SLOT 2 */}
           <div className="bg-gray-100 border rounded-lg h-48 flex items-center justify-center text-gray-500">
             Photo 2 Placeholder
           </div>
 
-          {/* PHOTO SLOT 3 */}
           <div className="bg-gray-100 border rounded-lg h-48 flex items-center justify-center text-gray-500">
             Photo 3 Placeholder
           </div>
@@ -112,21 +119,21 @@ export default function Home() {
             <p className="text-gray-700 italic">
               “Fast, professional, and high‑quality work. Saved my trailer from falling apart.”
             </p>
-            <p className="text-gray-900 font-semibold mt-2">— Customer Name</p>
+            <p className="text-gray-900 font-semibold mt-2">— Carlos Aguilar</p>
           </div>
 
           <div className="bg-white border p-6 rounded-lg shadow-sm">
             <p className="text-gray-700 italic">
               “Showed up same day for an emergency repair. Highly recommend.”
             </p>
-            <p className="text-gray-900 font-semibold mt-2">— Customer Name</p>
+            <p className="text-gray-900 font-semibold mt-2">— Aidan Kaiser</p>
           </div>
 
           <div className="bg-white border p-6 rounded-lg shadow-sm">
             <p className="text-gray-700 italic">
               “Great communication and solid welding. Will hire again.”
             </p>
-            <p className="text-gray-900 font-semibold mt-2">— Customer Name</p>
+            <p className="text-gray-900 font-semibold mt-2">— Renee Chau</p>
           </div>
         </div>
       </section>
