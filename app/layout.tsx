@@ -43,7 +43,7 @@ export default function RootLayout({
             </Link>
 
             {/* NAVIGATION BAR */}
-            <nav className="flex gap-10 text-lg font-semibold text-gray-800">
+            <nav className="flex gap-16 text-lg font-semibold text-gray-800 ml-10">
               <Link href="/" className="hover:text-red-600 transition">Home</Link>
               <Link href="/services" className="hover:text-red-600 transition">Services</Link>
               <Link href="/emergency-repairs" className="hover:text-red-600 transition">Emergency</Link>

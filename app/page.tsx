@@ -1,3 +1,5 @@
+import Image from "next/image";
+
 export default function Home() {
   return (
     <div className="space-y-16">
@@ -83,28 +85,51 @@ export default function Home() {
         </div>
       </section>
 
-      {/* PHOTO GALLERY PLACEHOLDER */}
+      {/* PHOTO GALLERY */}
       <section className="max-w-5xl mx-auto px-6 space-y-6">
         <h2 className="text-3xl font-bold text-gray-900 text-center">
           Recent Work
         </h2>
 
         <p className="text-center text-gray-600 max-w-2xl mx-auto">
-          Upload your photos and I’ll plug them in here with clean descriptions.
+          A few examples of recent welding and fabrication projects.
         </p>
 
         <div className="grid md:grid-cols-3 gap-6">
-          <div className="bg-gray-100 border rounded-lg h-48 flex items-center justify-center text-gray-500">
-            Photo 1 Placeholder
+
+          {/* IMAGE 1 */}
+          <div className="bg-white border rounded-lg h-48 overflow-hidden shadow-sm">
+            <Image
+              src="/backgrounds/IMG_0956.jpg"
+              alt="Recent welding project 1"
+              width={600}
+              height={400}
+              className="object-cover w-full h-full"
+            />
           </div>
 
-          <div className="bg-gray-100 border rounded-lg h-48 flex items-center justify-center text-gray-500">
-            Photo 2 Placeholder
+          {/* IMAGE 2 */}
+          <div className="bg-white border rounded-lg h-48 overflow-hidden shadow-sm">
+            <Image
+              src="/backgrounds/IMG_0957.jpg"
+              alt="Recent welding project 2"
+              width={600}
+              height={400}
+              className="object-cover w-full h-full"
+            />
           </div>
 
-          <div className="bg-gray-100 border rounded-lg h-48 flex items-center justify-center text-gray-500">
-            Photo 3 Placeholder
+          {/* IMAGE 3 */}
+          <div className="bg-white border rounded-lg h-48 overflow-hidden shadow-sm">
+            <Image
+              src="/backgrounds/IMG_0958.jpg"
+              alt="Recent welding project 3"
+              width={600}
+              height={400}
+              className="object-cover w-full h-full"
+            />
           </div>
+
         </div>
       </section>
 
@@ -116,24 +141,24 @@ export default function Home() {
 
         <div className="space-y-6">
           <div className="bg-white border p-6 rounded-lg shadow-sm">
-            <p className="text-gray-700 italic">
+            <p className="text-gray-900 italic">
               “Fast, professional, and high‑quality work. Saved my trailer from falling apart.”
             </p>
-            <p className="text-gray-900 font-semibold mt-2">— Carlos Aguilar</p>
+            <p className="text-gray-400 font-semibold mt-2">— Carlos Aguilar</p>
           </div>
 
           <div className="bg-white border p-6 rounded-lg shadow-sm">
-            <p className="text-gray-700 italic">
+            <p className="text-gray-900 italic">
               “Showed up same day for an emergency repair. Highly recommend.”
             </p>
-            <p className="text-gray-900 font-semibold mt-2">— Aidan Kaiser</p>
+            <p className="text-gray-400 font-semibold mt-2">— Aidan Kaiser</p>
           </div>
 
           <div className="bg-white border p-6 rounded-lg shadow-sm">
-            <p className="text-gray-700 italic">
+            <p className="text-gray-900 italic">
               “Great communication and solid welding. Will hire again.”
             </p>
-            <p className="text-gray-900 font-semibold mt-2">— Renee Chau</p>
+            <p className="text-gray-400 font-semibold mt-2">— Renee Chau</p>
           </div>
         </div>
       </section>

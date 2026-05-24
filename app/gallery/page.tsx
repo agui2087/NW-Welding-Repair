@@ -1,82 +1,131 @@
+"use client";
+
+import Image from "next/image";
+import { useState } from "react";
+
 export default function GalleryPage() {
+  const images = [
+    { src: "/backgrounds/IMG_8181.png", caption: "will fill later" },
+    { src: "/backgrounds/IMG_0953.jpg", caption: "will fill later" },
+    { src: "/backgrounds/IMG_0954.jpg", caption: "will fill later" },
+    { src: "/backgrounds/IMG_0955.jpg", caption: "will fill later" },
+  ];
+
+  const [currentIndex, setCurrentIndex] = useState<number | null>(null);
+
+  // Swipe tracking
+  let touchStartX = 0;
+  let touchEndX = 0;
+
+  const handleTouchStart = (e: React.TouchEvent) => {
+    touchStartX = e.changedTouches[0].screenX;
+  };
+
+  const handleTouchEnd = (e: React.TouchEvent) => {
+    touchEndX = e.changedTouches[0].screenX;
+    handleSwipe();
+  };
+
+  const handleSwipe = () => {
+    const swipeDistance = touchEndX - touchStartX;
+
+    if (swipeDistance > 50) {
+      showPrev();
+    } else if (swipeDistance < -50) {
+      showNext();
+    }
+  };
+
+  const showPrev = () => {
+    if (currentIndex === null) return;
+    setCurrentIndex((currentIndex - 1 + images.length) % images.length);
+  };
+
+  const showNext = () => {
+    if (currentIndex === null) return;
+    setCurrentIndex((currentIndex + 1) % images.length);
+  };
+
   return (
-    <div className="space-y-20">
+    <div className="space-y-12">
 
-      {/* HERO BANNER */}
-      <section className="bg-white border-b py-16 text-center px-6">
-        <h1 className="text-4xl md:text-5xl font-bold text-gray-900">
-          Project Gallery
-        </h1>
-
-        <p className="text-lg text-gray-600 max-w-2xl mx-auto mt-4">
-          A look at some of the welding, fabrication, and repair work we've completed. 
-          Photos will be added as projects are documented.
+      {/* PAGE TITLE */}
+      <section className="text-center">
+        <h1 className="text-4xl font-bold text-gray-900">Recent Work</h1>
+        <p className="text-gray-700 mt-2">
+          Real project photos from NW Welding Repair. Tap any image to view it larger.
         </p>
       </section>
 
-      {/* GALLERY GRID */}
-      <section className="max-w-6xl mx-auto px-6 space-y-10 text-center">
-        <h2 className="text-3xl font-bold text-gray-900">Recent Work</h2>
-
-        <p className="text-gray-700 text-lg max-w-2xl mx-auto">
-          These placeholders will be replaced with real project photos once uploaded. 
-          Each image can include a short description of the repair or fabrication.
-        </p>
-
-        <div className="grid md:grid-cols-3 gap-8">
-
-          {/* PHOTO 1 */}
-          <div className="bg-gray-100 border rounded-lg h-64 flex items-center justify-center text-gray-500">
-            Photo 1 Placeholder
-          </div>
-
-          {/* PHOTO 2 */}
-          <div className="bg-gray-100 border rounded-lg h-64 flex items-center justify-center text-gray-500">
-            Photo 2 Placeholder
-          </div>
-
-          {/* PHOTO 3 */}
-          <div className="bg-gray-100 border rounded-lg h-64 flex items-center justify-center text-gray-500">
-            Photo 3 Placeholder
-          </div>
-
-          {/* PHOTO 4 */}
-          <div className="bg-gray-100 border rounded-lg h-64 flex items-center justify-center text-gray-500">
-            Photo 4 Placeholder
-          </div>
-
-          {/* PHOTO 5 */}
-          <div className="bg-gray-100 border rounded-lg h-64 flex items-center justify-center text-gray-500">
-            Photo 5 Placeholder
-          </div>
-
-          {/* PHOTO 6 */}
-          <div className="bg-gray-100 border rounded-lg h-64 flex items-center justify-center text-gray-500">
-            Photo 6 Placeholder
-          </div>
-
-        </div>
-      </section>
-
-      {/* CALL TO ACTION */}
-      <section className="text-center space-y-4 pb-20 px-6">
-        <h2 className="text-3xl font-bold text-gray-900">Want Your Project Featured?</h2>
-
-        <p className="text-gray-700 text-lg max-w-2xl mx-auto">
-          We update our gallery regularly with new welding and fabrication work. 
-          Ask about having your project showcased.
-        </p>
-
-        <div className="flex justify-center gap-4 pt-4 flex-wrap">
-          <a
-            href="/contact"
-            className="bg-red-600 text-white px-8 py-4 rounded-md font-semibold text-lg hover:bg-red-700 transition"
+      {/* IMAGE GRID */}
+      <section className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+        {images.map((img, index) => (
+          <div
+            key={index}
+            className="w-full h-64 bg-white shadow rounded-lg overflow-hidden cursor-pointer"
+            onClick={() => setCurrentIndex(index)}
           >
-            Contact Us
-          </a>
-        </div>
+            <Image
+              src={img.src}
+              alt={`Gallery image ${index + 1}`}
+              width={800}
+              height={600}
+              className="object-cover w-full h-full"
+            />
+          </div>
+        ))}
       </section>
 
+      {/* TEXT BELOW GALLERY */}
+      <p className="text-center text-gray-600 text-lg pb-10">
+        More photos coming soon.
+      </p>
+
+      {/* MODAL */}
+      {currentIndex !== null && (
+        <div
+          className="fixed inset-0 bg-black/80 flex items-center justify-center z-50"
+          onTouchStart={handleTouchStart}
+          onTouchEnd={handleTouchEnd}
+        >
+          {/* CLOSE ON BACKGROUND CLICK */}
+          <div
+            className="absolute inset-0"
+            onClick={() => setCurrentIndex(null)}
+          />
+
+          {/* LEFT ARROW */}
+          <button
+            onClick={showPrev}
+            className="absolute left-4 text-white text-5xl font-bold select-none z-50"
+          >
+            ‹
+          </button>
+
+          {/* IMAGE + CAPTION */}
+          <div className="relative max-w-4xl w-full p-4 z-50">
+            <Image
+              src={images[currentIndex].src}
+              alt="Expanded view"
+              width={1200}
+              height={900}
+              className="w-full h-auto rounded-lg shadow-lg"
+            />
+
+            <p className="text-center text-white mt-4 text-lg">
+              {images[currentIndex].caption}
+            </p>
+          </div>
+
+          {/* RIGHT ARROW */}
+          <button
+            onClick={showNext}
+            className="absolute right-4 text-white text-5xl font-bold select-none z-50"
+          >
+            ›
+          </button>
+        </div>
+      )}
     </div>
   );
 }
