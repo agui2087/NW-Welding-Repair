@@ -4,7 +4,6 @@ import Image from "next/image";
 import { useState } from "react";
 
 export default function Home() {
-  // Modal state
   const [currentIndex, setCurrentIndex] = useState<number | null>(null);
 
   const images = [
@@ -13,7 +12,6 @@ export default function Home() {
     { src: "/backgrounds/IMG_0958.jpg", caption: "Recent welding project 3" },
   ];
 
-  // Swipe tracking
   let touchStartX = 0;
   let touchEndX = 0;
 
@@ -28,12 +26,8 @@ export default function Home() {
 
   const handleSwipe = () => {
     const swipeDistance = touchEndX - touchStartX;
-
-    if (swipeDistance > 50) {
-      showPrev();
-    } else if (swipeDistance < -50) {
-      showNext();
-    }
+    if (swipeDistance > 50) showPrev();
+    else if (swipeDistance < -50) showNext();
   };
 
   const showPrev = () => {
@@ -47,9 +41,8 @@ export default function Home() {
   };
 
   return (
-    <div className="space-y-16">
+    <div className="space-y-12">
 
-      {/* HERO SECTION WITH BACKGROUND IMAGE */}
       <section
         className="relative w-full h-[550px] bg-cover bg-center bg-no-repeat flex items-center justify-center"
         style={{ backgroundImage: "url('/backgrounds/IMG_3653.jpg')" }}
@@ -63,8 +56,7 @@ export default function Home() {
 
           <p className="text-lg md:text-xl text-gray-200 mt-4 drop-shadow-md max-w-2xl mx-auto">
             Fast, dependable, and professional welding services for industrial, agricultural,
-            and residential needs. Whether it’s a broken trailer, heavy equipment, or custom
-            fabrication — we get the job done right.
+            and residential needs.
           </p>
 
           <div className="flex flex-col sm:flex-row gap-4 justify-center mt-8">
@@ -86,7 +78,6 @@ export default function Home() {
         </div>
       </section>
 
-      {/* TRUST BAR */}
       <section className="w-full bg-white border-y py-4">
         <div className="max-w-5xl mx-auto flex flex-wrap justify-center gap-10 text-gray-700 text-sm font-semibold">
           <div className="flex items-center gap-2"><span className="text-red-600 text-lg">✓</span>Serving the Pacific Northwest</div>
@@ -95,7 +86,18 @@ export default function Home() {
         </div>
       </section>
 
-      {/* SERVICES PREVIEW */}
+      <section className="w-full bg-white border-y py-4">
+        <div className="max-w-5xl mx-auto flex justify-center">
+          <a
+            href="https://www.instagram.com/nw_weldrepair?igsh=ODVhZHBhbGF6bTd6"
+            target="_blank"
+            className="text-red-600 font-semibold hover:underline"
+          >
+            Follow us on Instagram @nw_weldrepair
+          </a>
+        </div>
+      </section>
+
       <section className="max-w-5xl mx-auto px-6 grid md:grid-cols-3 gap-6">
         <div className="bg-white border p-6 rounded-lg shadow-sm hover:shadow-md transition">
           <h3 className="font-semibold text-gray-900 mb-2">Mobile Welding</h3>
@@ -113,7 +115,6 @@ export default function Home() {
         </div>
       </section>
 
-      {/* PHOTO GALLERY WITH CLICK + SWIPE */}
       <section className="max-w-5xl mx-auto px-6 space-y-6">
         <h2 className="text-3xl font-bold text-gray-900 text-center">Recent Work</h2>
 
@@ -140,37 +141,71 @@ export default function Home() {
         </div>
       </section>
 
-      {/* REVIEWS SECTION */}
-      <section className="max-w-4xl mx-auto px-6 space-y-8 py-10">
+      <section className="max-w-5xl mx-auto px-6 py-8 space-y-6">
         <h2 className="text-3xl font-bold text-gray-900 text-center">
           Customer Reviews
         </h2>
 
-        <div className="space-y-6">
-          <div className="bg-white border p-6 rounded-lg shadow-sm">
-            <p className="text-gray-900 italic">
+        <div className="grid md:grid-cols-3 gap-6">
+          <div className="bg-white border p-6 rounded-xl shadow-md hover:shadow-lg transition">
+            <p className="text-gray-800 leading-relaxed">
               “Fast, professional, and high‑quality work. Saved my trailer from falling apart.”
             </p>
-            <p className="text-gray-400 font-semibold mt-2">— Carlos Aguilar</p>
+            <p className="text-red-600 font-semibold mt-4 text-sm">— Carlos Aguilar</p>
           </div>
 
-          <div className="bg-white border p-6 rounded-lg shadow-sm">
-            <p className="text-gray-900 italic">
+          <div className="bg-white border p-6 rounded-xl shadow-md hover:shadow-lg transition">
+            <p className="text-gray-800 leading-relaxed">
               “Showed up same day for an emergency repair. Highly recommend.”
             </p>
-            <p className="text-gray-400 font-semibold mt-2">— Aidan Kaiser</p>
+            <p className="text-red-600 font-semibold mt-4 text-sm">— Aidan Kaiser</p>
           </div>
 
-          <div className="bg-white border p-6 rounded-lg shadow-sm">
-            <p className="text-gray-900 italic">
+          <div className="bg-white border p-6 rounded-xl shadow-md hover:shadow-lg transition">
+            <p className="text-gray-800 leading-relaxed">
               “Great communication and solid welding. Will hire again.”
             </p>
-            <p className="text-gray-400 font-semibold mt-2">— Renee Chau</p>
+            <p className="text-red-600 font-semibold mt-4 text-sm">— Renee Chau</p>
           </div>
         </div>
       </section>
 
-      {/* MODAL */}
+      <section className="max-w-5xl mx-auto px-6 py-8 space-y-6">
+        <h2 className="text-3xl font-bold text-gray-900 text-center">
+          Why Choose Us
+        </h2>
+
+        <div className="bg-white border p-6 rounded-xl shadow-md max-w-3xl mx-auto space-y-4 text-center">
+          <p className="text-gray-700 leading-relaxed">
+            NW Welding Repair is built on the belief that skilled trades should support the community.
+            We take pride in helping local businesses, farmers, homeowners, and equipment owners keep
+            their operations running safely and smoothly.
+          </p>
+
+          <p className="text-gray-700 leading-relaxed">
+            Whether it’s a scheduled project or an emergency repair, we show up ready to work, ready to
+            solve problems, and ready to help our neighbors get back on track.
+          </p>
+        </div>
+      </section>
+
+      <section className="max-w-5xl mx-auto px-6 py-8 space-y-6">
+        <h2 className="text-3xl font-bold text-gray-900 text-center">
+          Service Area
+        </h2>
+
+        <p className="text-center text-gray-700 max-w-2xl mx-auto">
+          NW Welding Repair proudly serves the greater Portland metro area, including:
+        </p>
+
+        <div className="flex flex-wrap justify-center gap-4 text-gray-800 font-semibold">
+          <span className="bg-gray-100 border px-4 py-2 rounded-lg">Portland</span>
+          <span className="bg-gray-100 border px-4 py-2 rounded-lg">Beaverton</span>
+          <span className="bg-gray-100 border px-4 py-2 rounded-lg">Hillsboro</span>
+          <span className="bg-gray-100 border px-4 py-2 rounded-lg">Surrounding Areas</span>
+        </div>
+      </section>
+
       {currentIndex !== null && (
         <div
           className="fixed inset-0 bg-black/80 flex items-center justify-center z-50"
