@@ -89,7 +89,6 @@ export default function Home() {
       {/* TRUST BAR */}
       <section className="w-full bg-white border-y py-4">
         <div className="max-w-5xl mx-auto flex flex-wrap justify-center gap-10 text-gray-700 text-sm font-semibold">
-          <div className="flex items-center gap-2"><span className="text-red-600 text-lg">✓</span>Licensed & Insured</div>
           <div className="flex items-center gap-2"><span className="text-red-600 text-lg">✓</span>Serving the Pacific Northwest</div>
           <div className="flex items-center gap-2"><span className="text-red-600 text-lg">✓</span>24/7 Emergency Welding</div>
           <div className="flex items-center gap-2"><span className="text-red-600 text-lg">✓</span>Fully Mobile Welding Service</div>
