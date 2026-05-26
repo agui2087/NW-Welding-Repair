@@ -5,10 +5,10 @@ import { useState } from "react";
 
 export default function GalleryPage() {
   const images = [
-    { src: "/backgrounds/IMG_8181.png", caption: "will fill later" },
-    { src: "/backgrounds/IMG_0953.jpg", caption: "will fill later" },
-    { src: "/backgrounds/IMG_0954.jpg", caption: "will fill later" },
-    { src: "/backgrounds/IMG_0955.jpg", caption: "will fill later" },
+    { src: "/backgrounds/IMG_8181.png", caption: "Custom fabricated tool carrier" },
+    { src: "/backgrounds/IMG_0953.jpg", caption: "Custom fabricated soil screener" },
+    { src: "/backgrounds/IMG_0954.jpg", caption: "Trailer jack repair" },
+    { src: "/backgrounds/IMG_0955.jpg", caption: "Custom fabricated metal fence" },
   ];
 
   const [currentIndex, setCurrentIndex] = useState<number | null>(null);
